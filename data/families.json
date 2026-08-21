@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "slug": "caracidi-characidae",
+    "name": "Caracidi",
+    "scientific_family_name": "Characidae",
+    "origin_summary": "Sud America ed Africa Tropicale",
+    "description": "Famiglia vastissima di pesci di banco piccoli e medio-piccoli (Tetra Neon, Cardinali, Emirommi). Caratterizzati dalla presenza della pinna adiposa."
+  },
+  {
+    "id": 2,
+    "slug": "poecilidi-poeciliidae",
+    "name": "Poecilidi (Vivipari)",
+    "scientific_family_name": "Poeciliidae",
+    "origin_summary": "America Centrale e Settentrionale",
+    "description": "Pesci vivipari estremamente popolari e robusti (Guppy, Platy, Molly, Portaspada). I maschi sono dotati di gonopodio e le femmine partoriscono avannotti già capaci di nuotare."
+  },
+  {
+    "id": 3,
+    "slug": "ciclidi-americani-cichlidae",
+    "name": "Ciclidi Americani (Nani ed Amazzonici)",
+    "scientific_family_name": "Cichlidae (Neotropical)",
+    "origin_summary": "Bacino delle Amazzoni ed America del Sud",
+    "description": "Pesci dalla spiccata intelligenza e forte cura parentale. Comprende specie maestre eleganti (Scalari, Discus) e Ciclidi Nani territoriali (Ramirezi, Apistogramma)."
+  },
+  {
+    "id": 4,
+    "slug": "ciclidi-africani-cichlidae",
+    "name": "Ciclidi Africani (Laghi e Fiumi)",
+    "scientific_family_name": "Cichlidae (African)",
+    "origin_summary": "Grandi Laghi Africani (Malawi, Tanganica) e Fiumi dell'Africa Occidentale",
+    "description": "Specie adattate ad acque dure e calcaree. Fortemente territoriali con splendide livree colorate (Mbuna, Conchiliofili, Kribensis)."
+  },
+  {
+    "id": 5,
+    "slug": "anabantidi-osfronemidi",
+    "name": "Anabantidi e Labirintici",
+    "scientific_family_name": "Osphronemidae",
+    "origin_summary": "Asia Sud-Orientale",
+    "description": "Dotati dell'organo speciale 'Labirinto' che consente loro di respirare aria atmosferica direttamente dalla superficie (Betta Splendens, Gourami Miele/Cobalto/Perlato)."
+  },
+  {
+    "id": 6,
+    "slug": "loricaridi-loricariidae",
+    "name": "Loricaridi (Pesci Ventosa)",
+    "scientific_family_name": "Loricariidae",
+    "origin_summary": "Sud America",
+    "description": "Pesci corazzati di fondo con bocca a ventosa adattata per raschiare alghe e biofilm da legni e rocce (Ancistrus, Otocinclus, Plecostomus, Sturisoma)."
+  },
+  {
+    "id": 7,
+    "slug": "callittidi-corydoras",
+    "name": "Callittidi (Corydoras)",
+    "scientific_family_name": "Callichthyidae",
+    "origin_summary": "Sud America",
+    "description": "Piccoli pesci gatto di fondo pacifici e gregari dotati di placche ossee e barbilli tattili (Corydoras Sterbai, Aeneus, Panda, Pygmaeus)."
+  },
+  {
+    "id": 8,
+    "slug": "ciprinidi-rasbore",
+    "name": "Ciprinidi & Rasbore",
+    "scientific_family_name": "Cyprinidae",
+    "origin_summary": "Asia ed Europa",
+    "description": "Famiglia sterminata di pesci di banco attivi e pacifici (Rasbora Arlecchino, Rasbora Galaxy, Danio Rerio, Barbus, Pesci Rossi)."
+  },
+  {
+    "id": 9,
+    "slug": "melanotenidi-arcobaleno",
+    "name": "Melanotenidi (Pesci Arcobaleno)",
+    "scientific_family_name": "Melanotaeniidae",
+    "origin_summary": "Australia e Nuova Guinea",
+    "description": "Pesci nuotatori velocissimi con livree iridescenti cangianti che preferiscono acque limpide con buona corrente (Melanotaenia Boesemani, Pseudomugil)."
+  },
+  {
+    "id": 10,
+    "slug": "cobitidi-cobitidae",
+    "name": "Cobitidi (Mangia-lumache e Serpenti di fondo)",
+    "scientific_family_name": "Cobitidae",
+    "origin_summary": "Asia ed Europa",
+    "description": "Pesci di fondo dal corpo allungato o cilindrico, notturni e predatori di piccole lumache (Pangio Kuhlii, Botia Macracantha)."
+  },
+  {
+    "id": 11,
+    "slug": "gasteropelecidi-accetta",
+    "name": "Gasteropelecidi (Pesci Accetta)",
+    "scientific_family_name": "Gasteropelecidae",
+    "origin_summary": "Sud America",
+    "description": "Pesci di superficie dal corpo a forma di scure con muscoli pettorali sviluppati capaci di compiere piccoli balzi fuori dall'acqua (Carnegiella)."
+  },
+  {
+    "id": 12,
+    "slug": "invertebrati-crostacei",
+    "name": "Invertebrati & Crostacei (Gamberetti e Lumache)",
+    "scientific_family_name": "Atyidae / Neritidae",
+    "origin_summary": "Mondiale / Asia",
+    "description": "Spazzini instancabili e detritivori per nano-tank e vasche piantumate (Gamberetti Red Cherry, Caridina Amano, Lumache Neritina)."
+  }
+]

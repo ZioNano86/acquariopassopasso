@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "slug": "guida-preparazione-piantumazione-piante-acquario",
+    "title": "Guida Completa alla Preparazione ed al Piantamento delle Piante in Acquario",
+    "category_code": 2,
+    "category_name": "Allestimento & Piantumazione",
+    "target_audience": "beginner",
+    "summary": "Come scegliere piante sane in negozio, la differenza fondamentale tra piante in Vasetto (Lana di roccia) e In Vitro (Gel agar-agar), come lavarle e sfoltirle prima dell'inserimento in vasca.",
+    "estimated_reading_min": 6,
+    "photo_cover_path": "assets/articles/guida_piantumazione_cover.jpg",
+    "outline_points": [
+      "Come riconoscere una pianta sana in negozio (colore turgido, assenza di marciumi o alghe filamentose).",
+      "Differenza tra Vasetto Classico (lana di roccia/torba) e Cup In-Vitro (coltura sterile in gelatina nutritiva agar-agar).",
+      "Modalità di conservazione nei negozi: sommerse in vasca vs esposte in rack a secco / gelatina.",
+      "Rimozione della lana di roccia: perché la lana residua fa marcire le radici se interrata.",
+      "Sciacquo della gelatina In-Vitro: lavare delicatamente con acqua tiepida/ambiente per eliminare gli zuccheri che causerebbero picchi di alghe.",
+      "Tecnica di sfoltimento e divisione dei ciuffi con pinzette da aquascaping prima del piantamento.",
+      "Criteri di piantumazione in base al tipo: Epifite da legare (Anubias/Felci), Piante a stelo (potatura 45°), Pratini in micro-porzioni."
+    ]
+  }
+]
