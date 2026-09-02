@@ -3,16 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AcquarioPassoPasso.it - L'acquario d'acqua dolce semplice, passo dopo passo</title>
+  <title>AcquarioPassoPasso.it - La Guida & Simulatore per il tuo Acquario d'Acqua Dolce</title>
   <style>
     :root {
       --bg-dark: #0f172a;
-      --card-bg: rgba(30, 41, 59, 0.85);
+      --bg-card: rgba(30, 41, 59, 0.75);
+      --bg-card-hover: rgba(30, 41, 59, 0.95);
       --accent-green: #10b981;
       --accent-teal: #06b6d4;
+      --accent-blue: #38bdf8;
       --accent-orange: #f97316;
+      --accent-purple: #a855f7;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
+      --border-light: rgba(255, 255, 255, 0.1);
+      --border-accent: rgba(6, 182, 212, 0.35);
     }
     * { 
       box-sizing: border-box; 
@@ -27,15 +32,21 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      padding: 1.5rem 1rem;
+      padding: 2rem 1.25rem;
       overflow-x: hidden;
+      line-height: 1.6;
+    }
+    .main-container {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     header {
       text-align: center;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       width: 100%;
-      max-width: 900px;
     }
     .brand-logo-container {
       display: flex;
@@ -43,7 +54,7 @@
       align-items: center;
       justify-content: center;
       gap: 1.5rem;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
       flex-wrap: wrap;
     }
     .mascot-img {
@@ -51,11 +62,15 @@
       height: auto;
       aspect-ratio: 1/1;
       object-fit: contain;
-      filter: drop-shadow(0 10px 25px rgba(6, 182, 212, 0.35));
+      filter: drop-shadow(0 12px 28px rgba(6, 182, 212, 0.45));
       border: none;
       border-radius: 0;
       background: transparent;
       flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+    .mascot-img:hover {
+      transform: scale(1.05) rotate(2deg);
     }
     .brand-text-container {
       display: flex;
@@ -64,7 +79,7 @@
       justify-content: center;
     }
     h1 {
-      font-size: clamp(1.85rem, 5.5vw, 2.75rem);
+      font-size: clamp(2rem, 5.5vw, 3rem);
       background: linear-gradient(135deg, #38bdf8 0%, #10b981 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -74,72 +89,226 @@
       text-align: center;
     }
     p.tagline {
-      font-size: clamp(0.95rem, 3.5vw, 1.2rem);
+      font-size: clamp(1rem, 3.5vw, 1.25rem);
       color: var(--text-muted);
-      margin-top: 0.4rem;
+      margin-top: 0.5rem;
       line-height: 1.4;
       text-align: center;
+      max-width: 700px;
     }
+
+    /* Hero Banner */
     .hero-banner-container {
       width: 100%;
-      max-width: 1050px;
-      background: var(--card-bg);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.55);
-      backdrop-filter: blur(10px);
-      margin-bottom: 1.75rem;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+      backdrop-filter: blur(12px);
+      margin-bottom: 2.5rem;
+      transition: border-color 0.3s ease;
+    }
+    .hero-banner-container:hover {
+      border-color: var(--border-accent);
     }
     .hero-banner-img {
       width: 100%;
       height: auto;
       display: block;
     }
-    .content-box {
-      max-width: 760px;
-      width: 100%;
+
+    /* Section styling */
+    .section-title-wrap {
       text-align: center;
-      background: var(--card-bg);
-      padding: 1.75rem 1.25rem;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      margin-bottom: 1.75rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
-    .content-box h2 {
-      font-size: clamp(1.25rem, 4vw, 1.6rem);
-      color: #f1f5f9;
-      margin-bottom: 0.85rem;
-      line-height: 1.35;
-    }
-    .content-box p {
-      color: var(--text-muted);
-      line-height: 1.6;
-      font-size: clamp(0.95rem, 3vw, 1.05rem);
+      margin-bottom: 2rem;
+      width: 100%;
     }
     .badge-pill {
       display: inline-block;
       background: rgba(16, 185, 129, 0.15);
       color: var(--accent-green);
-      padding: 0.4rem 1rem;
+      padding: 0.45rem 1.2rem;
       border-radius: 50px;
-      font-size: 0.88rem;
-      font-weight: 600;
+      font-size: 0.9rem;
+      font-weight: 700;
       border: 1px solid rgba(16, 185, 129, 0.35);
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
-    footer {
+    .badge-pill.orange {
+      background: rgba(249, 115, 22, 0.15);
+      color: var(--accent-orange);
+      border-color: rgba(249, 115, 22, 0.35);
+    }
+    .badge-pill.teal {
+      background: rgba(6, 182, 212, 0.15);
+      color: var(--accent-teal);
+      border-color: rgba(6, 182, 212, 0.35);
+    }
+    .badge-pill.purple {
+      background: rgba(168, 85, 247, 0.15);
+      color: var(--accent-purple);
+      border-color: rgba(168, 85, 247, 0.35);
+    }
+    h2.section-title {
+      font-size: clamp(1.6rem, 4vw, 2.25rem);
+      color: #f1f5f9;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    p.section-subtitle {
       color: var(--text-muted);
-      font-size: 0.85rem;
-      text-align: center;
-      padding: 0.5rem 0;
+      font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+      max-width: 800px;
+      margin: 0 auto;
     }
 
-    /* Mobile optimization */
+    /* Feature Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+      margin-bottom: 3.5rem;
+    }
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      padding: 1.85rem 1.5rem;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-teal), var(--accent-green));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .feature-card:hover {
+      background: var(--bg-card-hover);
+      transform: translateY(-5px);
+      border-color: var(--border-accent);
+      box-shadow: 0 15px 40px rgba(6, 182, 212, 0.15);
+    }
+    .feature-card:hover::before {
+      opacity: 1;
+    }
+    .feature-icon {
+      font-size: 2.25rem;
+      margin-bottom: 1.25rem;
+      display: inline-block;
+      width: fit-content;
+      padding: 0.6rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .feature-card h3 {
+      font-size: 1.35rem;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+    .feature-card .highlight {
+      color: #38bdf8;
+      font-weight: 600;
+    }
+
+    /* Pillars / Highlights full-width section */
+    .pillar-box {
+      width: 100%;
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.9) 100%);
+      border: 1px solid var(--border-accent);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      margin-bottom: 3.5rem;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.4);
+    }
+    .pillar-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.75rem;
+    }
+    .pillar-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .pillar-icon {
+      font-size: 1.75rem;
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+    .pillar-content h4 {
+      font-size: 1.15rem;
+      color: #f8fafc;
+      margin-bottom: 0.35rem;
+      font-weight: 700;
+    }
+    .pillar-content p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Status banner footer */
+    .status-box {
+      width: 100%;
+      max-width: 850px;
+      text-align: center;
+      background: var(--bg-card);
+      padding: 2rem 1.5rem;
+      border-radius: 18px;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+      margin-bottom: 2.5rem;
+    }
+    .status-box h3 {
+      font-size: 1.4rem;
+      color: #f1f5f9;
+      margin-bottom: 0.75rem;
+    }
+    .status-box p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 1rem 0;
+      width: 100%;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Responsive */
     @media (max-width: 640px) {
       body {
-        padding: 1.25rem 0.75rem;
+        padding: 1.25rem 0.85rem;
       }
       .brand-logo-container {
         flex-direction: column;
@@ -149,40 +318,156 @@
         width: 125px;
       }
       .hero-banner-container {
-        border-radius: 12px;
+        border-radius: 14px;
+        margin-bottom: 1.75rem;
       }
-      .content-box {
-        padding: 1.5rem 1rem;
+      .pillar-box {
+        padding: 1.75rem 1.25rem;
+      }
+      .features-grid {
+        gap: 1.15rem;
+        margin-bottom: 2.5rem;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="brand-logo-container">
-      <img class="mascot-img" src="assets/mascot_logo.jpg" alt="Mascotte Apistogramma Cacatuoides">
-      <div class="brand-text-container">
-        <h1>AcquarioPassoPasso.it</h1>
-        <p class="tagline">L'acquario d'acqua dolce reso semplice, passo dopo passo.</p>
+  <div class="main-container">
+    
+    <!-- HEADER BRAND -->
+    <header>
+      <div class="brand-logo-container">
+        <img class="mascot-img" src="assets/mascot_logo.png" alt="Mascotte Apistogramma Cacatuoides">
+        <div class="brand-text-container">
+          <h1>AcquarioPassoPasso.it</h1>
+          <p class="tagline">L'acquario d'acqua dolce reso semplice, visuale e senza stress. Dalla prima goccia d'acqua all'ecosistema maturo.</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO BANNER TIMELINE -->
+    <main class="hero-banner-container">
+      <img class="hero-banner-img" src="assets/homepage_hero_timeline.jpg" alt="Evoluzione in 4 fasi dell'acquario: Vasca, Hardscape, Piantumazione ed Ecosistema">
+    </main>
+
+    <!-- SEZIONE 1: IL CONFIGURATORE & TOOL INTERATTIVO -->
+    <section class="section-title-wrap">
+      <span class="badge-pill teal">⚙️ Il Simulatore & Configurator 2D</span>
+      <h2 class="section-title">Cosa potrai fare con il nostro Tool Interattivo</h2>
+      <p class="section-subtitle">Uno strumento visuale intuitivo per progettare il tuo acquario ideale prima ancora di fare acquisti, prevenendo errori e delusioni.</p>
+    </section>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📐</div>
+        <h3>1. Vasca & Litri Reali</h3>
+        <p>Calcola all'istante il <span class="highlight">litraggio netto vs lordo</span>, lo spessore dei vetri ideale e il peso totale da supportare sul mobile. Dimensioni personalizzate per ogni spazio.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🪨</div>
+        <h3>2. Fondo & Hardscape</h3>
+        <p>Calcolo esatto dei kg di substrato fertile e sabbia. Verifica preventiva sull'impatto di <span class="highlight">rocce calcaree vs neutre</span> e radici su pH, GH e durezza dell'acqua.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🌿</div>
+        <h3>3. Flora & Luce (Lumen/L)</h3>
+        <p>Configura il layout verde per primo piano, centro e sfondo. Il sistema calcola il fabbisogno di <span class="highlight">Lumen per Litro</span>, fertilizzazione e necessità di impianto CO2.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🐠</div>
+        <h3>4. Popolamento Intelligente</h3>
+        <p>Algoritmo di compatibilità tra specie: verifica incrociata di <span class="highlight">pH, temperatura, litri minimi, aggressività</span>, biocarico biologico e convivenza con caridine.</p>
       </div>
     </div>
-  </header>
 
-  <main class="hero-banner-container">
-    <img class="hero-banner-img" src="assets/homepage_hero_timeline.jpg" alt="Evoluzione in 4 fasi dell'acquario">
-  </main>
+    <!-- SEZIONE 2: L'ENCICLOPEDIA TECNICA & SCHEDE -->
+    <section class="section-title-wrap">
+      <span class="badge-pill green">📚 Enciclopedia & Schede Tecniche</span>
+      <h2 class="section-title">Database Certificato e Costantemente Aggiornato</h2>
+      <p class="section-subtitle">Tutti i parametri chimici, biologici e comportamentali a portata di clic, strutturati con rigore scientifico e spiegati in modo comprensibile.</p>
+    </section>
 
-  <div class="content-box">
-    <span class="badge-pill">🛠️ Sito in Costruzione - Prossimamente Online</span>
-    <h2>Stiamo preparando lo strumento più semplice ed intuitivo d'Italia per il tuo acquario!</h2>
-    <p>
-      Dalla scelta della vasca al fondo ideale, dalle piante giuste fino alla combinazione compatibile di pesci e valori dell'acqua. 
-      AcquarioPassoPasso.it ti guida senza stress con simulatori 2D animati e consigli trasparenti.
-    </p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🐟</div>
+        <h3>Schede Pesci Dettagliate</h3>
+        <p>Oltre 12 famiglie tassonomiche: valori chimici di sopravvivenza ed ottimali, <span class="highlight">dimorfismo sessuale</span>, ratio maschi/femmine, abitudini di nuoto e comportamento riproduttivo.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🪴</div>
+        <h3>Schede Piante & Muschi</h3>
+        <p>Guida completa a crescita lenta, media o rapida. Esigenze luminose, sensibilità ai fertilizzanti, tasso di assorbimento nitrati e tecniche di potatura per aquascaping.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🌍</div>
+        <h3>Biotopi del Mondo</h3>
+        <p>Ricrea fedelmente gli habitat naturali: dalle acque ambrate del <span class="highlight">Rio delle Amazzoni</span> ai fiumi centroamericani, fino ai <span class="highlight">Grandi Laghi Africani</span> e torrenti asiatici.</p>
+      </div>
+    </div>
+
+    <!-- SEZIONE 3: L'ACADEMY E LE GUIDE PRATICHE -->
+    <div class="pillar-box">
+      <div class="pillar-header">
+        <span class="badge-pill orange">🎓 Acquario Academy</span>
+        <h2 class="section-title">Guide Chiare per Principianti e Appassionati</h2>
+        <p class="section-subtitle">Basta dubbi e pareri contrastanti. Guide step-by-step per accompagnarti in ogni fase dell'avventura acquariofila.</p>
+      </div>
+
+      <div class="pillar-grid">
+        <div class="pillar-item">
+          <div class="pillar-icon">🧪</div>
+          <div class="pillar-content">
+            <h4>Il Ciclo dell'Azoto Senza Panico</h4>
+            <p>Come avviare il filtro, insediare i batteri nitrificanti e superare il picco dei nitriti (NO2) senza rischiare la vita dei tuoi primi pesci.</p>
+          </div>
+        </div>
+
+        <div class="pillar-item">
+          <div class="pillar-icon">✂️</div>
+          <div class="pillar-content">
+            <h4>Preparazione & Piantumazione</h4>
+            <p>Differenza tra vasetto con lana di roccia e cup in-vitro sterile: pulizia delle radici, rimozione del gel e corretto inserimento con pinzette.</p>
+          </div>
+        </div>
+
+        <div class="pillar-item">
+          <div class="pillar-icon">💧</div>
+          <div class="pillar-content">
+            <h4>Manutenzione & Zero Alghe</h4>
+            <p>La routine semplice per cambi d'acqua parziali, sifonatura mirata, pulizia delle spugne del filtro e bilanciamento dei nutrienti.</p>
+          </div>
+        </div>
+
+        <div class="pillar-item">
+          <div class="pillar-icon">🛡️</div>
+          <div class="pillar-content">
+            <h4>Etica & Consigli Trasparenti</h4>
+            <p>Nessun interesse commerciale a venderti prodotti inutili. Solo consigli onesti ed efficaci per il benessere reale degli animali e la tua soddisfazione.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOX STATO PROGETTO / CALLOUT -->
+    <div class="status-box">
+      <span class="badge-pill purple">🚀 Progetto in Piena Costruzione</span>
+      <h3>Stiamo lavorando per portare tutto online!</h3>
+      <p>
+        Il database di piante e pesci è in continuo ampliamento e i motori di calcolo sono in fase di implementazione. 
+        Salva questo indirizzo nei tuoi preferiti: molto presto <strong>AcquarioPassoPasso.it</strong> diventerà la tua guida di riferimento per qualsiasi allestimento d'acqua dolce!
+      </p>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      &copy; 2026 AcquarioPassoPasso.it - Tutti i diritti riservati. Fatto con passione per l'acquariofilia consapevole.
+    </footer>
+
   </div>
-
-  <footer>
-    &copy; 2026 AcquarioPassoPasso.it - Tutti i diritti riservati.
-  </footer>
 </body>
 </html>
