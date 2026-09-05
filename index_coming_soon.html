@@ -47,6 +47,9 @@
       text-align: center;
       margin-bottom: 2rem;
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .brand-logo-container {
       display: flex;
@@ -54,7 +57,7 @@
       align-items: center;
       justify-content: center;
       gap: 1.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
       flex-wrap: wrap;
     }
     .mascot-img {
@@ -97,6 +100,20 @@
       max-width: 700px;
     }
 
+    /* Top Notice between Header and Hero */
+    .top-status-notice {
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .top-status-title {
+      font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+      color: #f1f5f9;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-top: 0.35rem;
+    }
+
     /* Hero Banner */
     .hero-banner-container {
       width: 100%;
@@ -133,7 +150,7 @@
       font-size: 0.9rem;
       font-weight: 700;
       border: 1px solid rgba(16, 185, 129, 0.35);
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.65rem;
       letter-spacing: 0.5px;
       text-transform: uppercase;
     }
@@ -148,9 +165,10 @@
       border-color: rgba(6, 182, 212, 0.35);
     }
     .badge-pill.purple {
-      background: rgba(168, 85, 247, 0.15);
-      color: var(--accent-purple);
-      border-color: rgba(168, 85, 247, 0.35);
+      background: rgba(168, 85, 247, 0.18);
+      color: #c084fc;
+      border-color: rgba(168, 85, 247, 0.45);
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
     }
     h2.section-title {
       font-size: clamp(1.6rem, 4vw, 2.25rem);
@@ -317,6 +335,9 @@
       .mascot-img {
         width: 125px;
       }
+      .top-status-notice {
+        margin-top: 1.2rem;
+      }
       .hero-banner-container {
         border-radius: 14px;
         margin-bottom: 1.75rem;
@@ -342,6 +363,12 @@
           <h1>AcquarioPassoPasso.it</h1>
           <p class="tagline">L'acquario d'acqua dolce reso semplice, visuale e senza stress. Dalla prima goccia d'acqua all'ecosistema maturo.</p>
         </div>
+      </div>
+
+      <!-- AVVISO STATO: TRA TITOLO E BANNER -->
+      <div class="top-status-notice">
+        <span class="badge-pill purple">🚀 PROGETTO IN PIENA COSTRUZIONE</span>
+        <h2 class="top-status-title">Stiamo lavorando per portare tutto online!</h2>
       </div>
     </header>
 
